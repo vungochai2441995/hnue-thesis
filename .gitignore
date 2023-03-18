@@ -23,3 +23,7 @@
 *.out
 *.synctex.gz
 *.toc
+*.ntn
+Main.pdf
+*.pdfsync
+*.synctex(busy)
