@@ -1,0 +1,63 @@
+%!TEX TS-program = xelatex
+\documentclass[vi]{hnue-thesis} % use [vi] for vietnamese
+
+\usepackage{blindtext}
+\usepackage{indentfirst}
+
+\title{ĐỊNH LÝ CẮT BỎ TRONG LÝ THUYẾT ĐỒNG ĐIỀU KỲ DỊ}
+\author{Nguyễn Trường Nhi}
+\authoremail{myemail@sis.hust.edu.vn}
+\major{Hình học}
+\field{Information Technology}
+\advisor{TS. Trần Đức Anh}
+\degree{KHÓA LUẬN TỐT NGHIỆP}
+\university{TRƯỜNG ĐẠI HỌC SƯ PHẠM HÀ NỘI}
+\department{KHOA TOÁN - TIN}
+\universitycity{Hanoi}
+\universitystate{Hanoi}
+\degreemonth{4}
+\degreeyear{2023}
+
+\input{frontmatter/glossaries}
+\makeglossaries 
+
+\begin{document}
+
+\input{frontmatter/coverpage}
+\pagenumbering{roman}
+
+\input{frontmatter/thanks}
+
+\addcontentsline{toc}{chapter}{Tóm tắt}
+\input{frontmatter/abstract}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Danh sách hình vẽ}
+\listoffigures
+\addcontentsline{toc}{chapter}{Danh sách bảng}
+\listoftables
+
+\glsaddall
+\printglossary[type=\acronymtype,title=Danh sách từ viết tắt, toctitle=Danh sách từ viết tắt]
+\printglossary[type=notation,title=Danh sách ký hiệu, toctitle=Danh sách ký hiệu,nonumberlist]
+
+\newpage
+\pagenumbering{arabic}
+
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+
+\singlespacing
+
+\clearpage
+\bibliography{refs}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{plainnat}
+
+\begin{appendices}
+\input{chapters/appendixA}
+\input{chapters/appendixB}
+\end{appendices}
+
+\end{document}
