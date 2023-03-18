@@ -263,7 +263,7 @@
     \signbox{\isenglish{Author}{Tác giả}}{\@author}
     
     
-    \item Attestation of thesis advisor: \\
+    \item Xác nhận của giáo viên hướng dẫn: \\
     \dotline{\linewidth}\newline
     \dotline{\linewidth}\newline
     
