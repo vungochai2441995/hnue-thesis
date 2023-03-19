@@ -363,20 +363,6 @@
 \def\dotfill#1{\cleaders\hbox to #1{.}\hfill}
 \newcommand\dotline[2][.5em]{\leavevmode\hbox to #2{\dotfill{#1}\hfil}}
 
-\renewenvironment{savequote}[1][10cm]{%
-\begin{lrbox}{\@quotebox}
-\noindent
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr|}
-&\begin{minipage}[t]{#1}\footnotesize\quotefont
-\ignorespaces
-}{%
-\end{minipage}
-\end{tabular*}
-\end{lrbox}
-\global\setbox\@quotebox\copy\@quotebox
-\global\let\@printcites\@iprintcites
-\ignorespacesafterend}
-
 
 % remove hyperlink, mostly used for citation in caption and headline
 \newcommand{\nohyper}[1]{\protect\NoHyper#1\protect\endNoHyper}

@@ -1,13 +1,49 @@
-\begin{savequote}[75mm] 
-Nulla facilisi. In vel sem. Morbi id urna in diam dignissim feugiat. Proin molestie tortor eu velit. Aliquam erat volutpat. Nullam ultrices, diam tempus vulputate egestas, eros pede varius leo.
-\qauthor{Quoteauthor Lastname} 
-\end{savequote}
-
+\usetikzlibrary{%
+	matrix,%
+	calc,%
+	arrows%
+}
 \chapter{Consectetuer adipiscing elit}
 
-\newthought{Lorem ipsum dolor sit amet}, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla consequat libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros.
-
-\blindtext
+\begin{tikzpicture}[>=triangle 60]
+	\matrix[matrix of math nodes,column sep={60pt,between origins},row sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+	{
+		&|[name=ka]| \ker f &|[name=kb]| \ker g &|[name=kc]| \ker h \\
+		%
+		&|[name=A]| A' &|[name=B]| B' &|[name=C]| C' &|[name=01]| 0 \\
+		%
+		|[name=02]| 0 &|[name=A']| A &|[name=B']| B &|[name=C']| C \\
+		%
+		&|[name=ca]| \coker f &|[name=cb]| \coker g &|[name=cc]| \coker h \\
+	};
+	\draw[->] (ka) edge (A)
+	(kb) edge (B)
+	(kc) edge (C)
+	(A) edge (B)
+	(B) edge node[auto] {\(p\)} (C)
+	(C) edge (01)
+	(A) edge node[auto,asymmetrical rectangle] (f) {\(f\)} (A')
+	(B) edge node[auto,asymmetrical rectangle] (g) {\(g\)} (B')
+	(C) edge node[auto,asymmetrical rectangle] (h) {\(h\)} (C')
+	(02) edge (A')
+	(A') edge node[auto] {\(i\)} (B')
+	(B') edge (C')
+	(A') edge (ca)
+	(B') edge (cb)
+	(C') edge (cc)
+	;
+	\draw[->,gray] (ka) edge (kb)
+	(kb) edge (kc)
+	(ca) edge (cb)
+	(cb) edge (cc)
+	;
+	\draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7] {\(\partial\)} ($(01.east)+(.5,0)$)  |-
+	(h.mid east) (h.mid west) +(-.1,0) --
+	(g.mid east) (g.mid west) +(-.1,0) --
+	(f.mid east) (f.mid west) +(-.1,0)
+	-| ($(02.west)+(-.5,0)$) |- (ca);
+	
+\end{tikzpicture}
 
 \section{This is section one}
 \blindtext
