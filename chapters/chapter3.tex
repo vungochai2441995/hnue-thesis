@@ -5,43 +5,46 @@
 }
 \chapter{Consectetuer adipiscing elit}
 
+
 \begin{tikzpicture}[>=triangle 60]
 	\matrix[matrix of math nodes,column sep={60pt,between origins},row sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
 	{
-		&|[name=ka]| \ker f &|[name=kb]| \ker g &|[name=kc]| \ker h \\
+		&|[name=ka]| 0 &|[name=kb]| 0 &|[name=kc]| 0 \\
 		%
-		&|[name=A]| A' &|[name=B]| B' &|[name=C]| C' &|[name=01]| 0 \\
+		|[name=A0]| \cdots &|[name=A1]| A_{n+1} &|[name=A2]| A_n &|[name=A3]| A_{n-1} &|[name=A4]| \cdots \\
 		%
-		|[name=02]| 0 &|[name=A']| A &|[name=B']| B &|[name=C']| C \\
+		|[name=B0]| \cdots &|[name=B1]| B_{n+1} &|[name=B2]| B_n &|[name=B3]| B_{n-1}  &|[name=B4]| \cdots\\
 		%
-		&|[name=ca]| \coker f &|[name=cb]| \coker g &|[name=cc]| \coker h \\
+		|[name=C0]| \cdots &|[name=C1]| C_{n+1} &|[name=C2]| C_n &|[name=C3]| C_{n-1}  &|[name=C4]| \cdots\\
+		%
+		&|[name=ca]| 0 &|[name=cb]| 0 &|[name=cc]| 0 \\
 	};
-	\draw[->] (ka) edge (A)
-	(kb) edge (B)
-	(kc) edge (C)
-	(A) edge (B)
-	(B) edge node[auto] {\(p\)} (C)
-	(C) edge (01)
-	(A) edge node[auto,asymmetrical rectangle] (f) {\(f\)} (A')
-	(B) edge node[auto,asymmetrical rectangle] (g) {\(g\)} (B')
-	(C) edge node[auto,asymmetrical rectangle] (h) {\(h\)} (C')
-	(02) edge (A')
-	(A') edge node[auto] {\(i\)} (B')
-	(B') edge (C')
-	(A') edge (ca)
-	(B') edge (cb)
-	(C') edge (cc)
+	\draw[->] 
+	(ka) edge (A1)
+	(kb) edge (A2)
+	(kc) edge (A3)
+	(A0) edge (A1)
+	(A1) edge node[auto] {$\partial$} (A2)
+	(A2) edge node[auto] {$\partial$} (A3)
+	(A3) edge (A4)
+	(A1) edge node[auto] {\(i\)} (B1)
+	(A2) edge node[auto] {\(i\)} (B2)
+	(A3) edge node[auto] {\(i\)} (B3)
+	(B0) edge (B1)
+	(B1) edge node[auto] {$\partial$} (B2)
+	(B2) edge node[auto] {$\partial$} (B3)
+	(B3) edge (B4)
+	(B1) edge node[auto] {\(j\)} (C1)
+	(B2) edge node[auto] {\(j\)} (C2)
+	(B3) edge node[auto] {\(j\)} (C3)
+	(C0) edge (C1)
+	(C1) edge node[auto] {$\partial$} (C2)
+	(C2) edge node[auto] {$\partial$} (C3)
+	(C3) edge (C4)
+	(C1) edge (ca)
+	(C2) edge (cb)
+	(C3) edge (cc)
 	;
-	\draw[->,gray] (ka) edge (kb)
-	(kb) edge (kc)
-	(ca) edge (cb)
-	(cb) edge (cc)
-	;
-	\draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7] {\(\partial\)} ($(01.east)+(.5,0)$)  |-
-	(h.mid east) (h.mid west) +(-.1,0) --
-	(g.mid east) (g.mid west) +(-.1,0) --
-	(f.mid east) (f.mid west) +(-.1,0)
-	-| ($(02.west)+(-.5,0)$) |- (ca);
 	
 \end{tikzpicture}
 
