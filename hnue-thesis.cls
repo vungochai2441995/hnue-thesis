@@ -344,11 +344,11 @@
 \newcommand{\signbox}[2]{
 \begin{minipage}{0.5\linewidth}
 \end{minipage}\hfill
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}{0.51\linewidth}
 \begin{flushright}
 \vbox{
     \begin{center}
-	\textit{\@universitycity, \isenglish{date}{ngày} \space \space \space \isenglish{month}{tháng} \space \space \space \isenglish{year}{năm} \@degreeyear}
+	\textit{\@universitycity, \isenglish{date}{ngày} 10 \isenglish{month}{tháng} 04 \isenglish{year}{năm} \@degreeyear}
 	\\ #1
 	\\~
 	\\~
